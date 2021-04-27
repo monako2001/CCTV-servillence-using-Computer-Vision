@@ -19,6 +19,14 @@ Our aim is to help them in the servillence for the missing one or the criminal.
 - In most of the CCTV footage the picture is not much clear which makes face recognition very difficult. So we have also used the dress colour as a factor to find out the target person. Dress information is easily available for a missing person and investigators use it to find the person. Two person can have similar dresses but atleast this program can filter out those persons from the footage to make the work easier.
 <br>
 
+## Testing:
+- First install all the dependencies from the `requirements.txt` file. It is preferred to use virtual environment.
+- Download the YOLOv3 weights file from [here](https://pjreddie.com/darknet/yolo/). Here we have used the model of 416x416 image size.
+- Keep the weights file in the same directory as the file `person_detect_final.py`.
+- Now run the `person_detect_final.py` and give it the required paths for images and video.
+- For testing initially you can use the example files provided.
+- when the running ends it will print out the servillence informations.
+
 ## References
 - [YOLO Object Detection using OpenCV](https://towardsdatascience.com/yolo-object-detection-with-opencv-and-python-21e50ac599e9)
 - [Face Detection using MTCNN](https://www.mygreatlearning.com/blog/real-time-face-detection/)
