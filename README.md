@@ -8,9 +8,9 @@ Our aim is to help them in the servillence for the missing one or the criminal.
 
 ## Approach:
 - The program takes the path to the CCTV footage. In case of online servillence it takes the ip address. It also takes the Face image and dress image of the target person.
-- In each frame it first detects the persons.
-- For each person it detects its face and calculates the matching score with the given one. If the face matches it records the time and tracks the face.
-- If the face does not match it checks out the dress color is matching or not. If the dress colour matches it records the time.
+- In each frame it first detects the persons using YOLOv3 object detection model.
+- For each person it detects its face using MTCNN face detector and calculates the matching score with the given one. If the face matches it records the time and tracks the face. For the face matching it uses pretrained VGGFace.
+- If the face does not match it checks out the dress color is matching or not. For getting the shirt colour we have cut out a portion from its back. To get the required portion we have used some basic principles of Human anatomy. If the dress colour matches it records the time.
 - When it can't find the person it also records the time.
 - In this way the program goes through the whole video and records the time. At last it prints all of them out.
 <br>
@@ -18,6 +18,14 @@ Our aim is to help them in the servillence for the missing one or the criminal.
 ## Innovation:
 - In most of the CCTV footage the picture is not much clear which makes face recognition very difficult. So we have also used the dress colour as a factor to find out the target person. Dress information is easily available for a missing person and investigators use it to find the person. Two person can have similar dresses but atleast this program can filter out those persons from the footage to make the work easier.
 <br>
+
+## Testing:
+- First install all the dependencies from the `requirements.txt` file. It is preferred to use virtual environment.
+- Download the YOLOv3 weights file from [here](https://pjreddie.com/darknet/yolo/). Here we have used the model of 416x416 image size.
+- Keep the weights file in the same directory as the file `person_detect_final.py`.
+- Now run the `person_detect_final.py` and give it the required paths for images and video.
+- For testing initially you can use the example files provided.
+- when the running ends it will print out the servillence informations.
 
 ## References
 - [YOLO Object Detection using OpenCV](https://towardsdatascience.com/yolo-object-detection-with-opencv-and-python-21e50ac599e9)
