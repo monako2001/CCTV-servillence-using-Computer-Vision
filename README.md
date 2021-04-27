@@ -8,9 +8,9 @@ Our aim is to help them in the servillence for the missing one or the criminal.
 
 ## Approach:
 - The program takes the path to the CCTV footage. In case of online servillence it takes the ip address. It also takes the Face image and dress image of the target person.
-- In each frame it first detects the persons.
-- For each person it detects its face and calculates the matching score with the given one. If the face matches it records the time and tracks the face.
-- If the face does not match it checks out the dress color is matching or not. If the dress colour matches it records the time.
+- In each frame it first detects the persons using YOLOv3 object detection model.
+- For each person it detects its face using MTCNN face detector and calculates the matching score with the given one. If the face matches it records the time and tracks the face. For the face matching it uses pretrained VGGFace.
+- If the face does not match it checks out the dress color is matching or not. For getting the shirt colour we have cut out a portion from its back. To get the required portion we have used some basic principles of Human anatomy. If the dress colour matches it records the time.
 - When it can't find the person it also records the time.
 - In this way the program goes through the whole video and records the time. At last it prints all of them out.
 <br>
